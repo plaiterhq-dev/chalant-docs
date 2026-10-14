@@ -16,6 +16,7 @@ from pathlib import Path
 THEME = Path(sys.argv[1] if len(sys.argv) > 1 else "../plaiter-theme")
 OUT = Path(__file__).parent
 SUPPORT_EMAIL = "plaiterhq@gmail.com"
+SUPPORT_FORM = "https://form.jotform.com/262867756735071"
 
 LOCALE = json.loads((THEME / "locales/en.default.schema.json").read_text())
 
@@ -361,12 +362,8 @@ FAQ = "<h1>FAQ and support</h1>\n<p class=\"lede\">Answers to common questions, 
     f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in FAQ_ITEMS
 ) + f"""
 <h2 id="support">Support</h2>
-<p>Email <a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>. So we can help quickly, include:</p>
-<ul>
-  <li>your store URL, for example your-store.myshopify.com;</li>
-  <li>what you expected and what happened instead, and on which page;</li>
-  <li>screenshots, if you can.</li>
-</ul>
+<p><a class="button" href="{SUPPORT_FORM}">Contact Chalant support</a></p>
+<p>The support form asks for your store URL, a description of the problem and any screenshots, so we can help quickly. You'll get an email confirming we have your request. You can also email <a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>.</p>
 
 <h2 id="policy">Support policy</h2>
 <ul>
@@ -459,7 +456,7 @@ def page(filename, title, body):
 <main id="content"{wide}>
 {body}
 </main>
-<footer>Chalant by Plaiter. Questions? Email <a href="mailto:{SUPPORT_EMAIL}">{SUPPORT_EMAIL}</a>.</footer>
+<footer>Chalant by Plaiter. Questions? <a href="{SUPPORT_FORM}">Contact support</a>.</footer>
 </body>
 </html>
 """
