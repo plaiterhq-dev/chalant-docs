@@ -43,17 +43,18 @@ def esc(text):
 
 SECTION_NOTES = {
     "announcement-bar": "A slim bar above the header for a promotion or shipping news.",
-    "header": "Logo, main menu, search, account and cart. The main menu supports three levels.",
+    "header": "Logo, main menu, search, account and cart. The main menu supports three levels, and the header can stay at the top of the screen as visitors scroll.",
     "footer": "Menus, newsletter signup, social media icons, payment icons and the copyright line.",
-    "image-banner": "A large image with a heading, text and buttons on top. Add a separate mobile image for phones.",
+    "image-banner": "A large image with a heading, text and buttons on top. Add a separate mobile image for phones, and a foreground image, such as a product cut out on a transparent background, that moves separately from the image as visitors scroll.",
     "marquee": "A line of short messages that scrolls across the page. It pauses on hover and stays still for visitors who prefer reduced motion.",
     "featured-collection": "A grid of products from one collection. Until you choose a collection, example cards show how it will look.",
     "featured-product": "One product with its gallery, price, options and buy buttons, anywhere on a page.",
     "media-with-text": "An image or a Shopify-hosted video beside your own blocks of text and buttons.",
     "statistics": "Large numbers with short descriptions, such as orders shipped or the share of natural ingredients.",
-    "testimonials": "Customer quotes, with an optional photo, name and role.",
+    "testimonials": "Customer quotes, with an optional photo, name and role. In the stacked layout, on larger screens with animations on, each card slides over the one before it.",
     "faq": "A heading beside numbered questions that open and close.",
     "newsletter": "An email signup form. Subscribers are added to your customer list in Shopify.",
+    "product-lineup": "A row of product cutouts standing side by side under an introduction and an optional badge, as on the Chalant demo. Add a product block for each cutout and set its size so smaller products stay smaller. With animations on, the products settle into place as visitors scroll.",
     "routine": "Chalant's routine builder: shoppers pick one product for each step and add the whole routine to the cart. See the Routine builder guide.",
     "section": "An empty section to build your own layout from blocks.",
     "custom-liquid": "Add app snippets or other Liquid code.",
@@ -97,7 +98,7 @@ BLOCK_NOTES = {
 SECTION_ORDER = [
     ("Header and footer", ["announcement-bar", "header", "footer"]),
     ("Home page and any page", ["image-banner", "marquee", "featured-collection", "featured-product",
-                                "media-with-text", "routine", "statistics", "testimonials", "faq",
+                                "media-with-text", "product-lineup", "routine", "statistics", "testimonials", "faq",
                                 "newsletter", "section", "custom-liquid"]),
     ("Product pages", ["product", "product-recommendations"]),
     ("Collections and search", ["collection", "collections", "search"]),
@@ -255,6 +256,10 @@ GET_STARTED = f"""
   <li><strong>Routine builder.</strong> Follow the <a href="routine-builder.html">routine builder guide</a>.</li>
 </ul>
 
+<h2 id="animations">Animations</h2>
+<p>Chalant moves gently as visitors scroll: the banner's images drift and fade, sections glide into place, product lineups settle, testimonial cards stack and the footer's store name rises into view. Buttons, links and product cards respond on hover.</p>
+<p>To turn animations off, open Theme settings, Layout and turn off <strong>Show animations</strong>. Visitors who turn off motion on their device never see animations, whatever the setting.</p>
+
 <h2 id="templates">Pages in Chalant</h2>
 <p>Chalant includes layouts for every page Shopify needs, plus two extra page layouts:</p>
 <ul>
@@ -347,6 +352,8 @@ FAQ_ITEMS = [
     ("Can I use a different layout for one page?", "Yes. In the theme editor, create a template from the page menu at the top, set it up, then choose it for the page in your admin under Theme template."),
     ("How do I translate the theme?", "Go to Online Store, Themes, then the menu next to Customize, Edit default theme content. Add languages in Settings, Languages, and use the Translate and Adapt app for content."),
     ("Does Chalant work with apps?", "Yes. Product pages, featured products and most sections accept app blocks. Choose Add block, Apps in the theme editor. Apps that need code changes may need help from the app developer."),
+    ("How do I turn off animations?", "In Theme settings, Layout, turn off Show animations. Visitors who reduce motion on their device never see animations."),
+    ("How do I make the banner's product move separately?", "In the Image banner section, add a Foreground image: a transparent PNG the same size as the main image, with only the product on it. It drifts at its own speed as visitors scroll."),
     ("How do I update Chalant?", "When a new version is released, Shopify shows it in your theme library. Updating adds the new version as a copy with your settings, so you can check it before publishing."),
 ]
 
