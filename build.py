@@ -45,7 +45,7 @@ def esc(text):
 SECTION_NOTES = {
     "announcement-bar": "A slim bar above the header for a promotion or shipping news.",
     "header": "Logo, main menu, search, account and cart. The main menu supports three levels, and the header can stay at the top of the screen as visitors scroll.",
-    "footer": "Menus, newsletter signup, social media icons, payment icons and the copyright line.",
+    "footer": "Your store description, menu columns, newsletter signup and social media, shown as icons or as a column of links. The bottom bar has the country and language selectors, payment icons, the copyright line and policy links, and your store name can run across the very bottom in the accent color.",
     "image-banner": "A large image with a heading, text and buttons on top. Add a separate mobile image for phones, and a foreground image, such as a product cut out on a transparent background, that moves separately from the image as visitors scroll.",
     "marquee": "A line of short messages that scrolls across the page. It pauses on hover and stays still for visitors who prefer reduced motion.",
     "featured-collection": "A grid of products from one collection. Until you choose a collection, example cards show how it will look.",
