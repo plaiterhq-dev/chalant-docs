@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formula – Chalant documentation</title>
+<meta name="description" content="Documentation for Chalant, a Shopify theme for skincare and beauty brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,700&family=Libre+Franklin:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top"><div class="top-inner"><a class="brand" href="index.html">Chalant<span>documentation</span></a><nav aria-label="Documentation"><a href="index.html">Get started</a><a href="formula.html" aria-current="page">Formula</a><a href="products.html">Products</a><a href="settings.html">Settings reference</a><a href="faq.html">FAQ and support</a></nav></div></header>
+<main id="content">
+
+<h1>Formula</h1>
+<p class="lede">Chalant is built around your formulas. Your actives are elements, shown as tiles in a formula table, and each product carries its ingredients with their percentages and pH. You set this up once, in your admin, and every page reads from it.</p>
+
+<h2 id="elements">1. Choose your elements</h2>
+<p>An element is a collection of the products built around one active, such as Vitamin C or Retinol.</p>
+<ol>
+  <li>In Products, Collections, create a collection for each active and add its products. A product can be in several.</li>
+  <li>In the theme editor, open Theme settings, <strong>Formula table</strong>, and choose up to 12 collections as your <strong>Element collections</strong>. Their order sets their numbers, 01, 02 and so on.</li>
+</ol>
+<p>Each tile shows the first two letters of the collection's title as its symbol, and a color from Chalant's palette. To choose them yourself, add these collection metafields in Settings, Custom data, Collections:</p>
+<div class="table"><table><thead><tr><th scope="col">Name and key</th><th scope="col">Type</th><th scope="col">Example</th></tr></thead><tbody>
+<tr><th scope="row">Symbol, <code>chalant.symbol</code></th><td>Single line text</td><td>Vc</td></tr>
+<tr><th scope="row">Strength range, <code>chalant.range</code></th><td>Single line text</td><td>10&ndash;20%</td></tr>
+<tr><th scope="row">Tint, <code>chalant.tint</code></th><td>Color</td><td>#f6e3cf</td></tr>
+</tbody></table></div>
+<p>The collection's image and description are shown when its tile is opened in the formula table.</p>
+
+<h2 id="formula">2. Add each product's formula</h2>
+<p>In Settings, Custom data, Products, add these metafield definitions, then fill them in on each product:</p>
+<div class="table"><table><thead><tr><th scope="col">Name and key</th><th scope="col">Type</th><th scope="col">What it holds</th></tr></thead><tbody>
+<tr><th scope="row">Formula, <code>chalant.formula</code></th><td>JSON</td><td>The ingredients, as described below.</td></tr>
+<tr><th scope="row">pH, <code>chalant.ph</code></th><td>Decimal</td><td>5.5</td></tr>
+<tr><th scope="row">Strength advice, <code>chalant.strength_advice</code></th><td>JSON</td><td>Advice for each strength (step 3).</td></tr>
+<tr><th scope="row">Pairs well with, <code>chalant.pairs_with</code></th><td>Product (list)</td><td>Products to layer it with (step 4).</td></tr>
+<tr><th scope="row">Keep apart, <code>chalant.keep_apart</code></th><td>Product (list)</td><td>Products to use at another time (step 4).</td></tr>
+</tbody></table></div>
+<p>The formula is a list of ingredients. Each has a <code>name</code>, a <code>role</code> (<code>active</code>, <code>support</code> or <code>base</code>) and a <code>percent</code>. Optionally add <code>why</code>, a sentence on what it does, and <code>label</code>, shown instead of the percentage, such as SPF 50. The base, such as water, has no percentage.</p>
+<pre><code>[
+  {"name": "Water", "role": "base", "why": "Carries everything else."},
+  {"name": "Ascorbic acid", "percent": 15, "role": "active",
+   "why": "Vitamin C. Brightens and fades marks."},
+  {"name": "Vitamin E", "percent": 1, "role": "support",
+   "why": "Keeps the vitamin C stable."}
+]</code></pre>
+<p>Product cards show the lead active, the first support ingredient and the pH. To hide this line, turn off <strong>Show the formula on product cards</strong> in Theme settings, Formula table.</p>
+
+<h2 id="strengths">3. Sell strengths</h2>
+<p>For a product that comes in strengths, such as a retinol at 0.1%, 0.3% and 1%, name the option <strong>Strength</strong> and give each value a percentage. If you use another name, set it in Theme settings, Formula table, <strong>Strength option name</strong>.</p>
+<p>The strength option shows as large strengths beside a vial that fills to the one chosen, the full formula follows the chosen strength, and the Strength story section steps through them. Its advice comes from the strength advice metafield, a list of label and text pairs for each strength:</p>
+<pre><code>{
+  "0.1%": [["For", "First time on retinol"], ["Use", "2 nights a week"]],
+  "0.3%": [["For", "After 6 weeks at 0.1%"], ["Use", "Every other night"]]
+}</code></pre>
+
+<h2 id="pairs">4. Pairs well with and keep apart</h2>
+<p>Choose the products a product layers well with, and the ones to use at another time of day, such as vitamin C in the morning and retinol at night. The product page shows both in the Pairs well with section, and the cart's formula check warns when two products to keep apart are in the bag and suggests products that pair with it.</p>
+
+<h2 id="where">Where your formulas show</h2>
+<ul>
+  <li><strong>Header:</strong> the element symbols in the pill, and the formula table in the menu panel.</li>
+  <li><strong>Home page:</strong> the Formula table, Strength story, Face map, Shop by feel and Compare formulas sections, and element pins on the banner.</li>
+  <li><strong>Product cards:</strong> the element tile and the formula line.</li>
+  <li><strong>Product page:</strong> the element beside the title, the strength picker, the formula label on the photo, the full formula and Pairs well with.</li>
+  <li><strong>Collection pages:</strong> the formula table as the header, with a ledger view that lists each product's formula in a table.</li>
+  <li><strong>Cart:</strong> each line's element and formula, and the formula check.</li>
+  <li><strong>Search:</strong> searching an element's name or symbol shows its tile and its products on a strength scale; searching a strength or pH, such as 10% or pH 3, lists the products that match.</li>
+  <li><strong>Footer:</strong> the formula index, a row of your element tiles.</li>
+</ul>
+<p>A product without a formula still shows everywhere, without the formula line. In the theme editor, sections without data show example tiles so you can see the layout while you set things up.</p>
+
+</main>
+<footer>Chalant by Plaiter. Questions? <a href="https://form.jotform.com/262867756735071">Contact support</a>.</footer>
+</body>
+</html>

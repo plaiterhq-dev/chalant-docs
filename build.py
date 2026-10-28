@@ -44,9 +44,9 @@ def esc(text):
 
 SECTION_NOTES = {
     "announcement-bar": "A slim bar above the header for a promotion or shipping news.",
-    "header": "Logo, main menu, search, account and cart. The main menu supports three levels, and the header can stay at the top of the screen as visitors scroll.",
-    "footer": "Your store description, menu columns, newsletter signup and social media, shown as icons or as a column of links. The bottom bar has the country and language selectors, payment icons, the copyright line and policy links, and your store name can run across the very bottom in the accent color.",
-    "image-banner": "A large image with a heading, text and buttons on top. Add a separate mobile image for phones, and a foreground image, such as a product cut out on a transparent background, that moves separately from the image as visitors scroll.",
+    "header": "Logo, search, account, cart and the main menu, in one of two layouts. The floating pill shows your element symbols and opens into a panel with the main menu and the formula table. The bar puts the main menu across the top, with three levels. Either can stay at the top of the screen as visitors scroll.",
+    "footer": "Your store description, menu columns, newsletter signup and social media, shown as icons or as a column of links. The formula index shows your element tiles above the bottom bar, which has the country and language selectors, payment icons, the copyright line and policy links.",
+    "image-banner": "A large image with a heading, text and buttons on top. Add Element pin blocks to pin element tiles to the photo, such as Vitamin C on the cheek. Add a separate mobile image for phones, and a foreground image, such as a product cut out on a transparent background, that moves separately from the image as visitors scroll.",
     "marquee": "A line of short messages that scrolls across the page. It pauses on hover and stays still for visitors who prefer reduced motion.",
     "featured-collection": "A grid of products from one collection. Until you choose a collection, example cards show how it will look.",
     "featured-product": "One product with its gallery, price, options and buy buttons, anywhere on a page.",
@@ -55,10 +55,16 @@ SECTION_NOTES = {
     "testimonials": "Customer quotes, with an optional photo, name and role. In the stacked layout, on larger screens with animations on, each card slides over the one before it.",
     "faq": "A heading beside numbered questions that open and close.",
     "newsletter": "An email signup form. Subscribers are added to your customer list in Shopify.",
-    "product-lineup": "A row of product cutouts standing side by side under an introduction and an optional badge, as on the Chalant demo. Add a product block for each cutout and set its size so smaller products stay smaller. With animations on, the products settle into place as visitors scroll.",
-    "routine": "Chalant's routine builder: shoppers pick one product for each step and add the whole routine to the cart. See the Routine builder guide.",
+    "formula-table": "Your actives as a periodic table. Pointing at a tile opens that element: its photo, description, first products with their formulas, and a link to its collection. See the Formula guide.",
+    "strength-story": "One product that comes in strengths. A slider moves through them; the gauge fills, the strength shows large, the advice for that strength lists below and the button adds that strength to the cart.",
+    "face-map": "A full-width portrait with face zones. Pointing at a zone rings it and shows its note and products. Add a zone block for each area and set its position on the photo.",
+    "feel-finder": "Texture swatches in a row. Picking one places it on two scales, light to rich and matte to dewy, and links to that texture's collection. Add a block for each texture.",
+    "formula-compare": "Two products side by side as labels, with the same lines in the same order: lead active, support ingredient, pH, type and price.",
     "section": "An empty section to build your own layout from blocks.",
     "custom-liquid": "Add app snippets or other Liquid code.",
+    "product-formula": "Every ingredient of the product in order of amount, with a bar to scale and its percentage. Pointing at a line shows why the ingredient is there. When the product has strengths, the list follows the strength the shopper picks.",
+    "product-pairs": "What to layer the product with and what to use at another time of day, from the product's Pairs well with and Keep apart metafields. Hidden when the product has neither.",
+    "cart-formula": "The formula check under the cart: the actives in the bag, products that should be used at different times, and products that pair with the bag, each with an add button. Hidden when the cart is empty.",
     "product": "The main product page. Each element, such as the title, price or buy buttons, is its own block you can reorder or remove.",
     "product-recommendations": "Related products, chosen automatically by Shopify.",
     "collection": "The product grid for a collection, with filters and sorting.",
@@ -74,18 +80,17 @@ SECTION_NOTES = {
 }
 
 BLOCK_NOTES = {
-    "heading": "A heading. Italic text uses the accent font and bold text is highlighted.",
+    "heading": "A heading. Italic words show in the accent color.",
     "text": "A paragraph of text.",
     "button": "A link styled as a button.",
     "image": "An image, with an optional link.",
     "group": "Holds other blocks in a row or a column.",
     "custom-liquid": "Add app snippets or other Liquid code.",
     "collapsible-content": "A row that opens to show more text, such as ingredients or care details.",
-    "routine": "The routine builder. Add it to a product page to suggest a full routine around the product being viewed.",
-    "_routine-step": "One step of a routine, such as Cleanse or Treat, with the products to choose from.",
-    "product-title": "The product title.",
+    "element-pin": "An element tile pinned to the banner photo, with a dot and a line, such as Vitamin C on the cheek. Set its position as a percentage of the photo, with a separate position for phones.",
+    "product-title": "The product title, with the product's element tile beside it.",
     "product-price": "The price, sale price and unit price.",
-    "product-variant-picker": "Buttons or dropdowns for the product's options, with color swatches where set up.",
+    "product-variant-picker": "Buttons or dropdowns for the product's options, with color swatches where set up. The strength option shows as large strengths beside a vial that fills to the one chosen.",
     "product-buy-buttons": "Quantity, purchase options for subscriptions, Add to cart, and the accelerated checkout buttons.",
     "product-description": "The product description.",
     "pickup-availability": "Shows whether the product can be picked up in store.",
@@ -99,28 +104,28 @@ BLOCK_NOTES = {
 SECTION_ORDER = [
     ("Header and footer", ["announcement-bar", "header", "footer"]),
     ("Home page and any page", ["image-banner", "marquee", "featured-collection", "featured-product",
-                                "media-with-text", "product-lineup", "routine", "statistics", "testimonials", "faq",
-                                "newsletter", "section", "custom-liquid"]),
-    ("Product pages", ["product", "product-recommendations"]),
+                                "media-with-text", "statistics", "testimonials", "faq", "newsletter", "section",
+                                "custom-liquid"]),
+    ("Formula sections", ["formula-table", "strength-story", "face-map", "feel-finder", "formula-compare"]),
+    ("Product pages", ["product", "product-formula", "product-pairs", "product-recommendations"]),
     ("Collections and search", ["collection", "collections", "search"]),
-    ("Cart", ["cart"]),
+    ("Cart", ["cart", "cart-formula"]),
     ("Blog and pages", ["blog", "article", "page", "contact-form"]),
     ("Other pages", ["404", "password"]),
 ]
 
 BLOCK_ORDER = [
-    ("Content blocks", ["heading", "text", "button", "image", "group", "collapsible-content", "custom-liquid"]),
+    ("Content blocks", ["heading", "text", "button", "image", "group", "collapsible-content", "element-pin",
+                        "custom-liquid"]),
     ("Product page blocks", ["_product-media-gallery", "product-title", "product-price", "product-variant-picker",
                              "product-buy-buttons", "product-description", "pickup-availability",
                              "complementary-products"]),
-    ("Routine builder blocks", ["routine", "_routine-step"]),
     ("Blocks inside sections", ["_stat", "_testimonial", "_footer-menu"]),
 ]
 
 # Used when a setting has no info text of its own, before the type hints below.
 ID_HINTS = {
-    "routine_step_tag_prefix": "How product tags that name a routine step begin. With step:, a product tagged step:Cleanse shows Cleanse on its product card.",
-    "show_routine_step_on_cards": "Shows a product's routine step on product cards across the store.",
+    "formula_collections": "The collections that are your elements, in the order they're numbered. See the Formula guide.",
     "logo_width": "",
     **{f"social_{n}_link": "The full link to your profile. Leave it blank to hide the icon." for n in
        ["instagram", "facebook", "twitter", "x", "tiktok", "youtube", "pinterest"]},
@@ -134,7 +139,7 @@ TYPE_HINTS = {
     "font_picker": "Choose a font from Shopify's font library.",
     "text": "Text shown to shoppers.",
     "product": "Choose a product.",
-    "inline_richtext": "Text shown to shoppers. Italic words use the accent font.",
+    "inline_richtext": "Text shown to shoppers. Italic words show in the accent color.",
     "richtext": "Text shown to shoppers.",
     "url": "Where the link goes.",
     "link_list": "Choose a menu from Online Store, Navigation.",
@@ -221,10 +226,10 @@ def reference():
 
 GET_STARTED = f"""
 <h1>Chalant documentation</h1>
-<p class="lede">Chalant is a Shopify theme for skincare and beauty brands. Its routine builder lets shoppers choose one product for each step of a routine and add the whole routine to their cart at once.</p>
+<p class="lede">Chalant is a Shopify theme for skincare brands that sell on what's in the bottle. Your actives become elements in a formula table, and every product shows its percentages and pH: on cards, on the product page, in the cart and in search.</p>
 
 <div class="cards">
-  <a class="card" href="routine-builder.html"><strong>Routine builder</strong><span>Set up routines on your home page and product pages.</span></a>
+  <a class="card" href="formula.html"><strong>Formula</strong><span>Set up your elements, product formulas, strengths and pairings.</span></a>
   <a class="card" href="products.html"><strong>Products</strong><span>Options and swatches, subscriptions, gift cards, pickup and filters.</span></a>
   <a class="card" href="settings.html"><strong>Settings reference</strong><span>Every section, block and theme setting.</span></a>
   <a class="card" href="faq.html"><strong>FAQ and support</strong><span>Common questions and how to reach us.</span></a>
@@ -251,15 +256,15 @@ GET_STARTED = f"""
 <ol>
   <li><strong>Logo and favicon.</strong> Theme settings, Logo. Tall logos are kept to the height of the header automatically.</li>
   <li><strong>Colors.</strong> Theme settings, Colors. Chalant comes with five color schemes. Edit a scheme once and every section using it updates.</li>
-  <li><strong>Fonts.</strong> Theme settings, Typography. The accent font is used for single highlighted words. In any heading, make a word italic to use it.</li>
+  <li><strong>Fonts.</strong> Theme settings, Typography. Headings and body text use the heading and body fonts. The accent font is kept for single large words, such as the faint word behind Shop by feel. In any heading, make a word italic to show it in the accent color.</li>
   <li><strong>Menus.</strong> Online Store, Navigation. The header uses your main menu and supports three levels. Footer columns each use a menu you choose.</li>
   <li><strong>Home page.</strong> Replace the example text in each section with your own, and choose a collection for Featured collection.</li>
-  <li><strong>Routine builder.</strong> Follow the <a href="routine-builder.html">routine builder guide</a>.</li>
+  <li><strong>Formula.</strong> Follow the <a href="formula.html">Formula guide</a> to set up your elements and product formulas. Most of Chalant reads from them.</li>
 </ul>
 
 <h2 id="animations">Animations</h2>
-<p>Chalant moves gently as visitors scroll: the banner's images drift and fade, sections glide into place, product lineups settle, testimonial cards stack and the footer's store name rises into view. Buttons, links and product cards respond on hover.</p>
-<p>To turn animations off, open Theme settings, Layout and turn off <strong>Show animations</strong>. Visitors who turn off motion on their device never see animations, whatever the setting.</p>
+<p>Chalant moves with your content. The menu opens out of the header pill, element pins draw onto the banner photo, large photos drift a little slower than the page, formula bars fill as they come into view, and sections glide into place. On hover, element tiles fill with their color, product cards print their formula line and buttons fill from the left. Mouse wheel scrolling eases to a stop.</p>
+<p>To turn animations off, open Theme settings, Layout and turn off <strong>Show animations</strong>. Turn off <strong>Smooth scrolling</strong> on its own to keep the other animations. Visitors who turn off motion on their device never see animations, whatever the settings.</p>
 
 <h2 id="templates">Pages in Chalant</h2>
 <p>Chalant includes layouts for every page Shopify needs, plus two extra page layouts:</p>
@@ -272,44 +277,66 @@ GET_STARTED = f"""
 <p>Before you edit any theme code, duplicate the theme from Online Store, Themes, so you can go back if something breaks. Code changes aren't covered by support. For custom work, we recommend hiring a <a href="https://www.shopify.com/partners/directory">Shopify Partner</a>.</p>
 """
 
-ROUTINE = """
-<h1>Routine builder</h1>
-<p class="lede">The routine builder lets shoppers build a routine one step at a time, such as Cleanse, Treat and Protect, choosing one product for each. They see a running total and add the whole routine to their cart with one button.</p>
+FORMULA = """
+<h1>Formula</h1>
+<p class="lede">Chalant is built around your formulas. Your actives are elements, shown as tiles in a formula table, and each product carries its ingredients with their percentages and pH. You set this up once, in your admin, and every page reads from it.</p>
 
-<h2 id="where">Where you can use it</h2>
-<ul>
-  <li><strong>Any page, as a section.</strong> Add the Routine builder section, for example to your home page.</li>
-  <li><strong>Product pages, as a block.</strong> In the Product information section, add the Routine builder block. When a shopper views a product that's part of a step, that product is chosen for them in its step.</li>
-</ul>
-
-<h2 id="set-up">Set up a routine</h2>
+<h2 id="elements">1. Choose your elements</h2>
+<p>An element is a collection of the products built around one active, such as Vitamin C or Retinol.</p>
 <ol>
-  <li>In the theme editor, add the Routine builder section, or select the Routine builder block on a product page.</li>
-  <li>Give the routine a <strong>Routine name</strong>, such as Morning routine. Shoppers see it in the cart next to each product from the routine.</li>
-  <li>Add a <strong>Step</strong> block for each step. Give it a <strong>Step name</strong>, such as Cleanse, and an optional <strong>Description</strong>.</li>
-  <li>In each step, choose the <strong>Products to choose from</strong>. Shoppers pick one of them.</li>
-  <li>Turn on <strong>Optional step</strong> for steps shoppers can skip. They see a Skip this step choice and the total updates.</li>
-  <li>Choose a <strong>Layout</strong> and change the <strong>Button label</strong> if you like.</li>
+  <li>In Products, Collections, create a collection for each active and add its products. A product can be in several.</li>
+  <li>In the theme editor, open Theme settings, <strong>Formula table</strong>, and choose up to 12 collections as your <strong>Element collections</strong>. Their order sets their numbers, 01, 02 and so on.</li>
 </ol>
-<p>Steps with no products are hidden from shoppers. A routine with no steps is hidden too, so you can set it up in the editor before anyone sees it.</p>
+<p>Each tile shows the first two letters of the collection's title as its symbol, and a color from Chalant's palette. To choose them yourself, add these collection metafields in Settings, Custom data, Collections:</p>
+<div class="table"><table><thead><tr><th scope="col">Name and key</th><th scope="col">Type</th><th scope="col">Example</th></tr></thead><tbody>
+<tr><th scope="row">Symbol, <code>chalant.symbol</code></th><td>Single line text</td><td>Vc</td></tr>
+<tr><th scope="row">Strength range, <code>chalant.range</code></th><td>Single line text</td><td>10&ndash;20%</td></tr>
+<tr><th scope="row">Tint, <code>chalant.tint</code></th><td>Color</td><td>#f6e3cf</td></tr>
+</tbody></table></div>
+<p>The collection's image and description are shown when its tile is opened in the formula table.</p>
 
-<h2 id="cart">In the cart</h2>
-<p>Each product from a routine is added as its own cart line, labeled with the routine name, for example Part of Morning routine. Shoppers can change quantities or remove items like any other line. If a product can't be added, for example because it just sold out, the shopper sees a message explaining why.</p>
-<p>Products with several options, such as size, show a dropdown once chosen, so the shopper picks the exact variant.</p>
+<h2 id="formula">2. Add each product's formula</h2>
+<p>In Settings, Custom data, Products, add these metafield definitions, then fill them in on each product:</p>
+<div class="table"><table><thead><tr><th scope="col">Name and key</th><th scope="col">Type</th><th scope="col">What it holds</th></tr></thead><tbody>
+<tr><th scope="row">Formula, <code>chalant.formula</code></th><td>JSON</td><td>The ingredients, as described below.</td></tr>
+<tr><th scope="row">pH, <code>chalant.ph</code></th><td>Decimal</td><td>5.5</td></tr>
+<tr><th scope="row">Strength advice, <code>chalant.strength_advice</code></th><td>JSON</td><td>Advice for each strength (step 3).</td></tr>
+<tr><th scope="row">Pairs well with, <code>chalant.pairs_with</code></th><td>Product (list)</td><td>Products to layer it with (step 4).</td></tr>
+<tr><th scope="row">Keep apart, <code>chalant.keep_apart</code></th><td>Product (list)</td><td>Products to use at another time (step 4).</td></tr>
+</tbody></table></div>
+<p>The formula is a list of ingredients. Each has a <code>name</code>, a <code>role</code> (<code>active</code>, <code>support</code> or <code>base</code>) and a <code>percent</code>. Optionally add <code>why</code>, a sentence on what it does, and <code>label</code>, shown instead of the percentage, such as SPF 50. The base, such as water, has no percentage.</p>
+<pre><code>[
+  {"name": "Water", "role": "base", "why": "Carries everything else."},
+  {"name": "Ascorbic acid", "percent": 15, "role": "active",
+   "why": "Vitamin C. Brightens and fades marks."},
+  {"name": "Vitamin E", "percent": 1, "role": "support",
+   "why": "Keeps the vitamin C stable."}
+]</code></pre>
+<p>Product cards show the lead active, the first support ingredient and the pH. To hide this line, turn off <strong>Show the formula on product cards</strong> in Theme settings, Formula table.</p>
 
-<h2 id="tags">Show the step on product cards</h2>
-<p>Product cards across your store can show which step a product belongs to, as a small label such as Cleanse.</p>
-<ol>
-  <li>Add a tag to the product that starts with the step tag prefix, for example <code>step:Cleanse</code>.</li>
-  <li>In Theme settings, Routines, check that <strong>Show routine step on product cards</strong> is on. Change the <strong>Step tag prefix</strong> if you already use step: for something else.</li>
-</ol>
+<h2 id="strengths">3. Sell strengths</h2>
+<p>For a product that comes in strengths, such as a retinol at 0.1%, 0.3% and 1%, name the option <strong>Strength</strong> and give each value a percentage. If you use another name, set it in Theme settings, Formula table, <strong>Strength option name</strong>.</p>
+<p>The strength option shows as large strengths beside a vial that fills to the one chosen, the full formula follows the chosen strength, and the Strength story section steps through them. Its advice comes from the strength advice metafield, a list of label and text pairs for each strength:</p>
+<pre><code>{
+  "0.1%": [["For", "First time on retinol"], ["Use", "2 nights a week"]],
+  "0.3%": [["For", "After 6 weeks at 0.1%"], ["Use", "Every other night"]]
+}</code></pre>
 
-<h2 id="ideas">Ideas</h2>
+<h2 id="pairs">4. Pairs well with and keep apart</h2>
+<p>Choose the products a product layers well with, and the ones to use at another time of day, such as vitamin C in the morning and retinol at night. The product page shows both in the Pairs well with section, and the cart's formula check warns when two products to keep apart are in the bag and suggests products that pair with it.</p>
+
+<h2 id="where">Where your formulas show</h2>
 <ul>
-  <li>A morning routine and an evening routine on the home page, as two sections.</li>
-  <li>A routine block on every serum's product page, suggesting the cleanser before it and the moisturizer after.</li>
-  <li>A gift set builder: Choose a scent, Choose a body lotion, Add a candle.</li>
+  <li><strong>Header:</strong> the element symbols in the pill, and the formula table in the menu panel.</li>
+  <li><strong>Home page:</strong> the Formula table, Strength story, Face map, Shop by feel and Compare formulas sections, and element pins on the banner.</li>
+  <li><strong>Product cards:</strong> the element tile and the formula line.</li>
+  <li><strong>Product page:</strong> the element beside the title, the strength picker, the formula label on the photo, the full formula and Pairs well with.</li>
+  <li><strong>Collection pages:</strong> the formula table as the header, with a ledger view that lists each product's formula in a table.</li>
+  <li><strong>Cart:</strong> each line's element and formula, and the formula check.</li>
+  <li><strong>Search:</strong> searching an element's name or symbol shows its tile and its products on a strength scale; searching a strength or pH, such as 10% or pH 3, lists the products that match.</li>
+  <li><strong>Footer:</strong> the formula index, a row of your element tiles.</li>
 </ul>
+<p>A product without a formula still shows everywhere, without the formula line. In the theme editor, sections without data show example tiles so you can see the layout while you set things up.</p>
 """
 
 PRODUCTS = """
@@ -345,15 +372,16 @@ PRODUCTS = """
 
 FAQ_ITEMS = [
     ("How do I change the colors?", "In the theme editor, open Theme settings, Colors. Edit a color scheme and every section using it updates. Each section has a Color scheme setting to pick which scheme it uses."),
-    ("Why doesn't a section show on my store?", "Statistics, Testimonials and FAQ sections with no blocks, a Routine builder with no products, and a Featured collection whose collection is empty are hidden from shoppers. They still show in the theme editor so you can finish setting them up."),
-    ("How do I add the routine builder to my product pages?", "Open a product page in the theme editor, select the Product information section and add the Routine builder block. See the routine builder guide."),
-    ("Why isn't the routine step showing on my product cards?", "Tag the product with the step tag prefix and a step name, such as step:Cleanse, and check that Show routine step on product cards is on in Theme settings, Routines."),
+    ("Why doesn't a section show on my store?", "Statistics, Testimonials and FAQ sections with no blocks, Pairs well with on a product with no pairings, the cart's formula check on an empty cart, and a Featured collection whose collection is empty are hidden from shoppers. They still show in the theme editor so you can finish setting them up."),
+    ("Why doesn't a product show its formula?", "Check that the product has the Formula metafield (chalant.formula) filled in with at least one ingredient whose role is active. See the Formula guide."),
+    ("Why doesn't a product show its element tile?", "The product needs to be in one of the collections chosen as Element collections in Theme settings, Formula table."),
+    ("How do I change an element's symbol or color?", "Add the Symbol and Tint metafields to the collection. Without them, the symbol is the first two letters of the title and the color comes from Chalant's palette."),
     ("How do I show subscriptions?", "Install a subscription app and add a subscription plan to the product. Purchase options appear on the product page automatically."),
     ("How do I set up filters?", "Install Shopify's Search and Discovery app and choose your filters there. Turn filtering on in the Collection and Search results sections."),
     ("Can I use a different layout for one page?", "Yes. In the theme editor, create a template from the page menu at the top, set it up, then choose it for the page in your admin under Theme template."),
     ("How do I translate the theme?", "Go to Online Store, Themes, then the menu next to Customize, Edit default theme content. Add languages in Settings, Languages, and use the Translate and Adapt app for content."),
     ("Does Chalant work with apps?", "Yes. Product pages, featured products and most sections accept app blocks. Choose Add block, Apps in the theme editor. Apps that need code changes may need help from the app developer."),
-    ("How do I turn off animations?", "In Theme settings, Layout, turn off Show animations. Visitors who reduce motion on their device never see animations."),
+    ("How do I turn off animations?", "In Theme settings, Layout, turn off Show animations, or only Smooth scrolling. Visitors who reduce motion on their device never see animations."),
     ("How do I make the banner's product move separately?", "In the Image banner section, add a Foreground image: a transparent PNG the same size as the main image, with only the product on it. It drifts at its own speed as visitors scroll."),
     ("How do I update Chalant?", "When a new version is released, Shopify shows it in your theme library. Updating adds the new version as a copy with your settings, so you can check it before publishing."),
 ]
@@ -376,7 +404,7 @@ FAQ = "<h1>FAQ and support</h1>\n<p class=\"lede\">Answers to common questions, 
 
 PAGES = [
     ("index.html", "Get started", GET_STARTED),
-    ("routine-builder.html", "Routine builder", ROUTINE),
+    ("formula.html", "Formula", FORMULA),
     ("products.html", "Products", PRODUCTS),
     ("settings.html", "Settings reference", None),
     ("faq.html", "FAQ and support", FAQ),
