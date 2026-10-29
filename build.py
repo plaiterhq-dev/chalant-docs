@@ -263,7 +263,7 @@ GET_STARTED = f"""
 </ul>
 
 <h2 id="animations">Animations</h2>
-<p>Chalant moves with your content. The menu opens out of the header pill, element pins draw onto the banner photo, large photos drift a little slower than the page, formula bars fill as they come into view, and sections glide into place. On hover, element tiles fill with their color, product cards print their formula line and buttons fill from the left. Mouse wheel scrolling eases to a stop.</p>
+<p>Chalant moves with your content. The menu opens out of the header pill, element pins draw onto the banner photo, large photos drift a little slower than the page, formula bars fill as they come into view, and sections glide into place. On hover, element tiles fill with their color, product cards turn their photo into a formula label (or print their formula line, for products without an active) and buttons fill from the left. Mouse wheel scrolling eases to a stop.</p>
 <p>To turn animations off, open Theme settings, Layout and turn off <strong>Show animations</strong>. Turn off <strong>Smooth scrolling</strong> on its own to keep the other animations. Visitors who turn off motion on their device never see animations, whatever the settings.</p>
 
 <h2 id="templates">Pages in Chalant</h2>
