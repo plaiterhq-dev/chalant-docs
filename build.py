@@ -263,7 +263,7 @@ GET_STARTED = f"""
 </ul>
 
 <h2 id="animations">Animations</h2>
-<p>Chalant moves with your content. The menu opens out of the header pill and its links rise in one after another, element pins draw onto the banner photo, large photos drift a little slower than the page, formula bars fill as they come into view, and sections fade and rise into place as they reach the screen, with headings coming up word by word. On larger screens the formula table holds in place while its tiles fly into position (turn off <strong>Assemble the table on scroll</strong> on the section to keep it still). With the banner's <strong>Centered statement</strong> layout, the headline rises in as the page loads and grows and fades as visitors scroll on. On hover, element tiles fill with their color, product cards turn their photo into a formula label (or print their formula line, for products without an active) and buttons fill from the left. Mouse wheel scrolling eases to a stop.</p>
+<p>Chalant moves with your content. The menu opens out of the header pill and its links rise in one after another, element pins draw onto the banner photo, large photos drift a little slower than the page, formula bars fill as they come into view, and sections fade and rise into place as they reach the screen, with headings coming up word by word. As the first section on a page, the formula table's tiles land in place as the page loads and its heading rises in word by word. Further down a page, on larger screens, the table holds in place while its tiles fly into position (turn off <strong>Assemble the table on scroll</strong> on the section to keep it still). With the banner's <strong>Centered statement</strong> layout, the headline rises in as the page loads and grows and fades as visitors scroll on. On hover, element tiles fill with their color, product cards turn their photo into a formula label (or print their formula line, for products without an active) and buttons fill from the left. Mouse wheel scrolling eases to a stop.</p>
 <p>To turn animations off, open Theme settings, Layout and turn off <strong>Show animations</strong>. Turn off <strong>Smooth scrolling</strong> on its own to keep the other animations. Visitors who turn off motion on their device never see animations, whatever the settings.</p>
 
 <h2 id="templates">Pages in Chalant</h2>
@@ -323,12 +323,12 @@ FORMULA = """
 }</code></pre>
 
 <h2 id="pairs">4. Pairs well with and keep apart</h2>
-<p>Choose the products a product layers well with, and the ones to use at another time of day, such as vitamin C in the morning and retinol at night. The product page shows both in the Pairs well with section, and the cart's formula check warns when two products to keep apart are in the bag and suggests products that pair with it.</p>
+<p>Choose the products a product layers well with, and the ones to use at another time of day, such as vitamin C in the morning and retinol at night. The product page shows both in the Pairs well with section, and the cart's formula check warns when two products to keep apart are in the bag, flags products that bring the same active (their dose adds up) and suggests products that pair with it.</p>
 
 <h2 id="where">Where your formulas show</h2>
 <ul>
   <li><strong>Header:</strong> the element symbols in the pill, and the formula table in the menu panel.</li>
-  <li><strong>Home page:</strong> the Formula table, Strength story, Face map, Shop by feel and Compare formulas sections, and element pins on the banner.</li>
+  <li><strong>Home page:</strong> the Formula table, which opens the page with your headline above it, Strength story, Face map, Shop by feel and Compare formulas sections, and element pins on the banner.</li>
   <li><strong>Product cards:</strong> the element tile and the formula line.</li>
   <li><strong>Product page:</strong> the element beside the title, the strength picker, the formula label on the photo, the full formula and Pairs well with.</li>
   <li><strong>Collection pages:</strong> the formula table as the header, with a ledger view that lists each product's formula in a table.</li>
@@ -365,6 +365,7 @@ PRODUCTS = """
 
 <h2 id="filters">Filters and sorting</h2>
 <p>Install the Search and Discovery app to choose which filters appear on collection and search pages, such as availability, price, product type or color. Turn filtering and sorting on or off in the Collection and Search results sections, and choose whether filters show in a sidebar or a drawer on large screens.</p>
+<p>Two formula filters have their own look. Add a filter for your strength option (named in Theme settings, Formula table, <strong>Strength option name</strong>) and each strength shows as a step, rising with the dose. Add a filter for the <code>chalant.ph</code> metafield and each pH is marked on the 0 to 14 scale.</p>
 
 <h2 id="unit-price">Unit prices and Shop Pay Installments</h2>
 <p>Unit prices you set on a variant, such as $93.30 / 100 ml, show on product cards, the product page and in the cart. When Shop Pay Installments is turned on for your store, the installment message shows under the price on the product page.</p>
