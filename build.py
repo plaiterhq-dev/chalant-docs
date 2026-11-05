@@ -65,7 +65,7 @@ SECTION_NOTES = {
     "product-formula": "Every ingredient of the product in order of amount, with a bar to scale and its percentage. Pointing at a line shows why the ingredient is there. When the product has strengths, the list follows the strength the shopper picks.",
     "product-pairs": "What to layer the product with and what to use at another time of day, from the product's Pairs well with and Keep apart metafields. Hidden when the product has neither.",
     "cart-formula": "The formula check under the cart: the actives in the bag, products that should be used at different times, and products that pair with the bag, each with an add button. Hidden when the cart is empty.",
-    "product": "The main product page. Each element, such as the title, price or buy buttons, is its own block you can reorder or remove.",
+    "product": "The main product page. Each element, such as the title, price or buy buttons, is its own block you can reorder or remove. Choose a layout: photos beside the details, or Poster, which puts the formula and the buy blocks either side of the photo with the product name across the bottom of the screen. Poster works best with photos on a white or transparent background; turn on blending to let white backgrounds disappear into light color schemes.",
     "product-recommendations": "Related products, chosen automatically by Shopify.",
     "collection": "The product grid for a collection, with filters and sorting.",
     "collections": "A list of all your collections.",
