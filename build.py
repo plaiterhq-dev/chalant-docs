@@ -57,17 +57,18 @@ SECTION_NOTES = {
     "newsletter": "An email signup form. Subscribers are added to your customer list in Shopify.",
     "formula-table": "Your actives as a periodic table. Pointing at a tile opens that element: its photo, description, first products with their formulas, and a link to its collection. See the Formula guide.",
     "strength-story": "One product that comes in strengths. A slider moves through them; the gauge fills, the strength shows large, the advice for that strength lists below and the button adds that strength to the cart.",
-    "face-map": "A full-width portrait with face zones. Pointing at a zone rings it and shows its note and products. Add a zone block for each area and set its position on the photo.",
-    "feel-finder": "Texture swatches in a row. Picking one places it on two scales, light to rich and matte to dewy, and links to that texture's collection. Add a block for each texture.",
+    "face-map": "A portrait beside one list of every product the zones name. The zones are filters over that list: picking one keeps only its products, shows its note and rings it on the photo; Every zone brings the whole list back. Add a zone block for each area, with its products and its ring's position on the photo.",
+    "feel-finder": "Texture swatches in a row. Picking one places it on two scales, light to rich and matte to dewy, and links to that texture's collection. Add a video of texture on skin and it plays in a round lens above the swatches, tinted in the picked texture's color. Add a block for each texture.",
+    "element-shelf": "The catalog stocked by active: one even column for each element in Theme settings, Formula table, headed by its tile, with its products listed by formula and price. Choose how many products each column shows.",
     "formula-compare": "Two products side by side as labels, with the same lines in the same order: lead active, support ingredient, pH, type and price.",
     "section": "An empty section to build your own layout from blocks.",
     "custom-liquid": "Add app snippets or other Liquid code.",
     "product-formula": "Every ingredient of the product in order of amount, with a bar to scale and its percentage. Pointing at a line shows why the ingredient is there. When the product has strengths, the list follows the strength the shopper picks.",
     "product-pairs": "What to layer the product with and what to use at another time of day, from the product's Pairs well with and Keep apart metafields. Hidden when the product has neither.",
     "cart-formula": "The formula check under the cart: the actives in the bag, products that should be used at different times, and products that pair with the bag, each with an add button. Hidden when the cart is empty.",
-    "product": "The main product page. Each element, such as the title, price or buy buttons, is its own block you can reorder or remove. Choose a layout: photos beside the details, or Poster, which puts the formula and the buy blocks either side of the photo with the product name across the bottom of the screen. In the poster, the formula re-sorts around the strength a shopper picks, with a bar for each share, and the advice for that strength shows under the buy buttons. Poster works best with photos on a white or transparent background; turn on blending to let white backgrounds disappear into light color schemes.",
+    "product": "The main product page. Each element, such as the title, price or buy buttons, is its own block you can reorder or remove. Choose a layout: photos beside the details, or Poster, which puts the formula and the buy blocks either side of the photo with the product name across the bottom of the screen. In the poster, the formula re-sorts around the strength a shopper picks, with a bar for each share, and the advice for that strength shows under the buy buttons. Under the name, the description and the remaining blocks read like the back of the label, and any other photos follow as an even contact sheet. Poster works best with photos on a white or transparent background; turn on blending to let white backgrounds disappear into light color schemes.",
     "product-recommendations": "Related products, chosen automatically by Shopify.",
-    "collection": "The product grid for a collection, with filters and sorting.",
+    "collection": "The product grid for a collection, with filters and sorting. With the ledger on, choose whether the page opens on the ledger, a table of each product's formula, or on the grid; shoppers can switch. The Strength filter lists strengths once the results are down to one active, so the steps compare like with like.",
     "collections": "A list of all your collections.",
     "search": "Search results with filters and sorting.",
     "cart": "The cart page, with quantities, order note, totals and checkout buttons.",
@@ -106,7 +107,7 @@ SECTION_ORDER = [
     ("Home page and any page", ["image-banner", "marquee", "featured-collection", "featured-product",
                                 "media-with-text", "statistics", "testimonials", "faq", "newsletter", "section",
                                 "custom-liquid"]),
-    ("Formula sections", ["formula-table", "strength-story", "face-map", "feel-finder", "formula-compare"]),
+    ("Formula sections", ["formula-table", "strength-story", "face-map", "feel-finder", "formula-compare", "element-shelf"]),
     ("Product pages", ["product", "product-formula", "product-pairs", "product-recommendations"]),
     ("Collections and search", ["collection", "collections", "search"]),
     ("Cart", ["cart", "cart-formula"]),
@@ -329,10 +330,10 @@ FORMULA = """
 <h2 id="where">Where your formulas show</h2>
 <ul>
   <li><strong>Header:</strong> the element symbols in the pill, and the formula table in the menu panel.</li>
-  <li><strong>Home page:</strong> the Formula table, Strength story, Face map, Shop by feel and Compare formulas sections, and element pins on the banner. Pick a product for a pin and it shows that product's element and strength and links to it. Testimonials can name the product and strength the customer used.</li>
+  <li><strong>Home page:</strong> the Formula table, Strength story, Face map, Shop by feel, Compare formulas and Element shelf sections, and element pins on the banner. Pick a product for a pin and it shows that product's element and strength and links to it. Testimonials can name the product and strength the customer used.</li>
   <li><strong>Product cards:</strong> the element tile and the formula line.</li>
   <li><strong>Product page:</strong> the element beside the title, the strength picker, the formula label on the photo, the full formula and Pairs well with.</li>
-  <li><strong>Collection pages:</strong> the formula table as the header, with a ledger view that lists each product's formula in a table.</li>
+  <li><strong>Collection pages:</strong> the formula table as the header, with a ledger view, open by default, that lists each product's formula in a table. Strength steps appear once the results are down to one active.</li>
   <li><strong>Cart:</strong> each line's element and formula, and the formula check.</li>
   <li><strong>Search:</strong> searching an element's name or symbol shows its tile and its products on a strength scale; searching a strength or pH, such as 10% or pH 3, lists the products that match.</li>
   <li><strong>Footer:</strong> the formula index, a row of your element tiles.</li>
