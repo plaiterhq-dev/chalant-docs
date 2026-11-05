@@ -65,7 +65,7 @@ SECTION_NOTES = {
     "product-formula": "Every ingredient of the product in order of amount, with a bar to scale and its percentage. Pointing at a line shows why the ingredient is there. When the product has strengths, the list follows the strength the shopper picks.",
     "product-pairs": "What to layer the product with and what to use at another time of day, from the product's Pairs well with and Keep apart metafields. Hidden when the product has neither.",
     "cart-formula": "The formula check under the cart: the actives in the bag, products that should be used at different times, and products that pair with the bag, each with an add button. Hidden when the cart is empty.",
-    "product": "The main product page. Each element, such as the title, price or buy buttons, is its own block you can reorder or remove. Choose a layout: photos beside the details, or Poster, which puts the formula and the buy blocks either side of the photo with the product name across the bottom of the screen. Poster works best with photos on a white or transparent background; turn on blending to let white backgrounds disappear into light color schemes.",
+    "product": "The main product page. Each element, such as the title, price or buy buttons, is its own block you can reorder or remove. Choose a layout: photos beside the details, or Poster, which puts the formula and the buy blocks either side of the photo with the product name across the bottom of the screen. In the poster, the formula re-sorts around the strength a shopper picks, with a bar for each share, and the advice for that strength shows under the buy buttons. Poster works best with photos on a white or transparent background; turn on blending to let white backgrounds disappear into light color schemes.",
     "product-recommendations": "Related products, chosen automatically by Shopify.",
     "collection": "The product grid for a collection, with filters and sorting.",
     "collections": "A list of all your collections.",
@@ -303,6 +303,7 @@ FORMULA = """
 <tr><th scope="row">Strength advice, <code>chalant.strength_advice</code></th><td>JSON</td><td>Advice for each strength (step 3).</td></tr>
 <tr><th scope="row">Pairs well with, <code>chalant.pairs_with</code></th><td>Product (list)</td><td>Products to layer it with (step 4).</td></tr>
 <tr><th scope="row">Keep apart, <code>chalant.keep_apart</code></th><td>Product (list)</td><td>Products to use at another time (step 4).</td></tr>
+<tr><th scope="row">Actives, <code>chalant.actives</code></th><td>Single line text (list)</td><td>The product's actives, by element name, such as Retinol. Used by the actives filter.</td></tr>
 </tbody></table></div>
 <p>The formula is a list of ingredients. Each has a <code>name</code>, a <code>role</code> (<code>active</code>, <code>support</code> or <code>base</code>) and a <code>percent</code>. Optionally add <code>why</code>, a sentence on what it does, and <code>label</code>, shown instead of the percentage, such as SPF 50. The base, such as water, has no percentage.</p>
 <pre><code>[
@@ -328,7 +329,7 @@ FORMULA = """
 <h2 id="where">Where your formulas show</h2>
 <ul>
   <li><strong>Header:</strong> the element symbols in the pill, and the formula table in the menu panel.</li>
-  <li><strong>Home page:</strong> the Formula table, Strength story, Face map, Shop by feel and Compare formulas sections, and element pins on the banner.</li>
+  <li><strong>Home page:</strong> the Formula table, Strength story, Face map, Shop by feel and Compare formulas sections, and element pins on the banner. Pick a product for a pin and it shows that product's element and strength and links to it. Testimonials can name the product and strength the customer used.</li>
   <li><strong>Product cards:</strong> the element tile and the formula line.</li>
   <li><strong>Product page:</strong> the element beside the title, the strength picker, the formula label on the photo, the full formula and Pairs well with.</li>
   <li><strong>Collection pages:</strong> the formula table as the header, with a ledger view that lists each product's formula in a table.</li>
@@ -365,7 +366,7 @@ PRODUCTS = """
 
 <h2 id="filters">Filters and sorting</h2>
 <p>Install the Search and Discovery app to choose which filters appear on collection and search pages, such as availability, price, product type or color. Turn filtering and sorting on or off in the Collection and Search results sections, and choose whether filters show in a sidebar or a drawer on large screens.</p>
-<p>Two formula filters have their own look. Add a filter for your strength option (named in Theme settings, Formula table, <strong>Strength option name</strong>) and each strength shows as a step, rising with the dose. Add a filter for the <code>chalant.ph</code> metafield and each pH is marked on the 0 to 14 scale.</p>
+<p>Three formula filters have their own look. Add a filter for the <code>chalant.actives</code> metafield and the formula table at the top of collection pages becomes that filter: each element tile adds or removes its active, shows how many products match and dims when none do, and shoppers can pick several. Add a filter for your strength option (named in Theme settings, Formula table, <strong>Strength option name</strong>) and each strength shows as a step sized to its strength. Add a filter for the <code>chalant.ph</code> metafield and each pH is marked on the 0 to 14 scale.</p>
 
 <h2 id="unit-price">Unit prices and Shop Pay Installments</h2>
 <p>Unit prices you set on a variant, such as $93.30 / 100 ml, show on product cards, the product page and in the cart. When Shop Pay Installments is turned on for your store, the installment message shows under the price on the product page.</p>
